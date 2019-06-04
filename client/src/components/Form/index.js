@@ -1,33 +1,99 @@
 import React from "react";
 
-function Form({ q, handleInputChange, handleFormSubmit }) {
+function Form({ p,q, r, s, t, handleInputChange, handleFormSubmit }) {
   return (
     <form>
       <div className="form-group">
         <label htmlFor="Query">
-          <strong>Book</strong>
+          <strong>Business Expenses</strong>
         </label>
         <input
           className="form-control"
-          id="Title"
+          id="rent"
+          type="text"
+          value={p}
+          placeholder="Month"
+          name="p"
+          onChange={handleInputChange}
+          required
+        />
+        <input
+          className="form-control"
+          id="rent"
           type="text"
           value={q}
-          placeholder="Ready Player One"
+          placeholder="Rent/Lease/Mortgage"
           name="q"
           onChange={handleInputChange}
           required
+        />
+        <input
+          className="form-control"
+          id="tax"
+          type="text"
+          value={r}
+          placeholder="Taxes"
+          name="r"
+          onChange={handleInputChange}
+          required
+        />
+        <input
+          className="form-control"
+          id="payroll"
+          type="text"
+          value={s}
+          placeholder="Payroll"
+          name="s"
+          onChange={handleInputChange}
+          required
+        />
+        <input
+          className="form-control"
+          id="advertising"
+          type="text"
+          value={t}
+          placeholder="Advertising"
+          name="t"
+          onChange={handleInputChange}
+          required
+          />
+          <input
+            className="form-control"
+            id="utilities"
+            type="text"
+            value={t}
+            placeholder="Utilities"
+            name="u"
+            onChange={handleInputChange}
+            required
         />
       </div>
       <div className="pull-right">
         <button
           onClick={handleFormSubmit}
           type="submit"
-          className="btn btn-lg btn-danger float-right"
+          className="btn btn-lg btn-primary float-right"
         >
-          Search
+          Review Your Quarterly Expenses
         </button>
+        <button
+          onClick={handleFormSubmit}
+          type="submit"
+          className="btn btn-lg btn-success float-right"
+          href="/saved"
+        >
+          Submit Expenses
+          
+        </button>
+
+
+
+
+
       </div>
     </form>
+
+    
   );
 }
 

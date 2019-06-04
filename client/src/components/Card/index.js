@@ -6,7 +6,9 @@ function Card({ icon, title, children }) {
       <div className="card-header">
         <h3>
           <strong>
-            <i className={`fa fa-${icon}`} aria-hidden="true" /> {title}
+            <i className={`fa fa-${icon}`} aria-hidden="true"  /> {title}
+            {/* <img src= "https://barnraisersllc.com/wp-content/uploads/2014/08/varwwwclientsclient1web2tmpphpJnHzht.jpg"></img> */}
+            {/* <img src={require('./Dataviz.png')} /> */}
           </strong>
         </h3>
       </div>

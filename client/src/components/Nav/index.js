@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 
+
 class Nav extends Component {
   state = {
     open: false,
@@ -34,7 +35,7 @@ class Nav extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light mb-2">
         <Link className="navbar-brand" to="/">
-          Google Books
+          RHMA Insights
         </Link>
         <button
           onClick={this.toggleNav}
@@ -53,9 +54,9 @@ class Nav extends Component {
               <Link
                 onClick={this.toggleNav}
                 className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
-                to="/"
+                to="/nomatch"
               >
-                Search
+                Expense Report
               </Link>
             </li>
             <li className="nav-item">
@@ -64,8 +65,19 @@ class Nav extends Component {
                 className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
                 to="/saved"
               >
-                Saved
+                Business Analysis
               </Link>
+              
+            </li>
+            <li className="nav-item">
+              <Link
+                onClick={this.toggleNav}
+                className={window.location.pathname === "/ShoppingItems" ? "nav-link active" : "nav-link"}
+                to="/ShoppingItems"
+              >
+                Purchases
+              </Link>
+              
             </li>
           </ul>
         </div>
