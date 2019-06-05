@@ -1,3 +1,7 @@
+body {
+    background-image: url("../../Backgrounds/clean_textile/clean_textile.png");
+}
+
 .ListMain .header input {
     padding: 10px;
     font-size: 16px;

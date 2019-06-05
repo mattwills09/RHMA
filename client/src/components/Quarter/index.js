@@ -3,16 +3,16 @@ import "./style.css";
 
 
 
-function Visual({ icon, title, children, quarter,image }) {
+function Visual({ icon, title, children, quarter, image }) {
     return (
         <div className="card mt-4">
             <div className="card-header">
                 <h3>
                     <strong>
                         <i className={`fa fa-${icon}`} aria-hidden="true" /> {title}
-                        <image>{image}
+                        {/* <image>{image}
                             <img src={require('./Quarterviz.png')} />
-                        </image>
+                        </image> */}
                     </strong>
                 </h3>
             </div>

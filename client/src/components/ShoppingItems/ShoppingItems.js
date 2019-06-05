@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-// var listItems = ""; 
 
 class ShoppingItems extends Component {
     constructor(props) {
@@ -21,9 +20,10 @@ class ShoppingItems extends Component {
     var listItems = listEntries.map(this.createList);
  
     return (
-      <ul className="theList">
+      <ul id="inventoryList" className="theList">
           {listItems}
       </ul>
+      
     );
   }
 };

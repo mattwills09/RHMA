@@ -1,6 +1,5 @@
-
-
 import React, { Component } from "react";
+import Chart from 'react-google-charts';
 import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
 // import Book from "../components/Book";
@@ -18,7 +17,7 @@ import Quarter from "../components/Quarter";
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-class Saved extends Component {
+class BusinessAnalysis extends Component {
   state = {
     books: []
   };
@@ -57,8 +56,62 @@ class Saved extends Component {
         </Row>
         <Row>
           <Col size="md-12">
+            
             <Card title="Visuals" icon="download">
-              <Quarter></Quarter>
+
+              <Quarter>
+
+                <Row>
+                  <Col size="md-6">
+
+                <div>
+                <Chart className="febChart"
+                  width={'500px'}
+                  height={'300px'}
+                  chartType="PieChart"
+                  data={[
+                    ['Expense', 'Amount'],
+                    ['Advertising', 200],
+                    ['Insurance', 350],
+                    ['Payroll', 12000],
+                    ['Rent', 1500],
+                    ['Utilities', 1200],
+                  ]}
+                  options={{
+                    title: 'February Expense Report',
+                    is3D: true,
+                  }}
+                  rootProps={{ 'data-testid': '2' }}
+                />
+                </div>
+
+                </Col>
+
+                <Col size="md-6">
+                  <Chart
+                    width={'500px'}
+                    height={'300px'}
+                    chartType="PieChart"
+                    data={[
+                      ['Expense', 'Amount'],
+                      ['Advertising', 150],
+                      ['Insurance', 350],
+                      ['Payroll', 11000],
+                      ['Rent', 1500],
+                      ['Utilities', 1000],
+                    ]}
+                    options={{
+                      title: 'March Expense Report', 
+                      is3D: true,
+                    }}
+                    rootProps={{ 'data-testid': '2' }}
+                  />
+
+                </Col>
+              </Row>
+
+              </Quarter>
+
               {this.state.books.length ? (
                 <List>
                   {this.state.books.map(book => (
@@ -83,9 +136,13 @@ class Saved extends Component {
                   ))}
                 </List>
               ) : (
-                  <h2 className="text-center">No Current Insights</h2>
+                <div>
+                  <br></br>
+                  <h2 className="text-center">Visual Insights</h2>
+                </div>
                 )}
             </Card>
+
           </Col>
         </Row>
         <Footer />
@@ -94,6 +151,6 @@ class Saved extends Component {
   }
 }
 
-export default Saved;
+export default BusinessAnalysis;
 
 

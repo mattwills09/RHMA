@@ -54,7 +54,7 @@ class Nav extends Component {
               <Link
                 onClick={this.toggleNav}
                 className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
-                to="/nomatch"
+                to="/ExpenseReport"
               >
                 Expense Report
               </Link>
@@ -62,8 +62,8 @@ class Nav extends Component {
             <li className="nav-item">
               <Link
                 onClick={this.toggleNav}
-                className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
-                to="/saved"
+                className={window.location.pathname === "/BusinessAnalysis" ? "nav-link active" : "nav-link"}
+                to="/BusinessAnalysis"
               >
                 Business Analysis
               </Link>

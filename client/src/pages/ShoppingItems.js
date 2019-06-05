@@ -3,14 +3,15 @@ import ShoppingItems from "../components/ShoppingItems/ShoppingItems";
 import "../components/ShoppingItems/ShoppingItems.css";
 import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
-// import Book from "../components/Book";
+import jsPDF from 'jspdf';
 import Footer from "../components/Footer";
-import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
-import { List } from "../components/List";
-import Expense from "../components/Expense";
-import Book from "../components/Book";
-import Visual from "../components/Visual";
+import $ from "jquery";
+// import { List } from "../components/List";
+// import Expense from "../components/Expense";
+// import Visual from "../components/Visual";
+// import { url } from "inspector";
+
 
 class ShoppingList extends Component {
 
@@ -24,6 +25,19 @@ class ShoppingList extends Component {
     this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
   }
+
+  // Default export is a4 paper, portrait, using milimeters for units
+  jsPDF() {
+    var doc = new jsPDF();
+
+    doc.text("RHMA Inventory List", 10, 10);
+
+    doc.fromHTML($('#inventoryList').html(), 15, 15, {
+      'width': 170
+    });
+    doc.save('RHMA Inventory List.pdf');
+}
+
   addItem(e) {
     if (this._inputElement.value !== "") {
       var newItem = {
@@ -40,8 +54,8 @@ class ShoppingList extends Component {
     }
     console.log(this.state.items);
     e.preventDefault();
-
   }
+
   deleteItem(key) {
     var filteredItems = this.state.items.filter(function (item) {
       return (item.key !== key);
@@ -55,26 +69,56 @@ class ShoppingList extends Component {
   render() {
     return (
 
-      // <Jumbotron>
-      //   <h1 className="text-center">
-      //     <strong>Learn Your True Cost of Doing Business</strong>
-      //   </h1>
-      //   <h2 className="text-center">Input Your Expenses for Data Insights</h2>
-    
+      <Container>
+        <Row>
+          <Col size="md-12">
+            <Jumbotron>
+              <h1 className="text-center">
+                <strong>Expense / Shopping List</strong>
 
-      <div className="ListMain">
-        <div className="header">
-          <form onSubmit={this.addItem}>
-            <input ref={(a) => this._inputElement = a} placeholder="Enter Your Items!">
-            </input>
-            <button type="submit">Add</button>
-          </form>
-        </div>
-        <ShoppingItems entries={this.state.items} delete={this.deleteItem} />
+              </h1>
+              <h2 className="text-center">Add Inventory Needs and Items Below</h2>
+            </Jumbotron>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-12">
+            <Card title="Inventory List" icon="download">
+
+            <div className="ListMain">
+              <div className="header">
+              <form onSubmit={this.addItem}>
+
+                <input ref={(a) => this._inputElement = a} placeholder="Enter Your Items!">
+                </input>
+
+                <button type="submit">Add To List</button>
+
+              </form>
+
+            </div>
+
+          <ShoppingItems pdf={this.jsPDF} entries={this.state.items} delete={this.deleteItem} />
         
-      </div>
+            </div>
+
+            </Card>
+          </Col>
+        </Row>
+
+        <br></br>
+
+        <button type="button" onClick={this.jsPDF}>
+          Save/Print PDF
+        </button>
+
+        
+        <Footer />
+      </Container>
+
     );
   }
 }
+
 
 export default ShoppingList;
