@@ -1,17 +1,16 @@
 import React, { Component } from "react";
+import Chart from 'react-google-charts';
 import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
 import Form from "../components/Form";
 import Book from "../components/Book";
 import Footer from "../components/Footer";
-import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
-import Visual from "../components/Visual";
 
 class ExpenseReport extends Component {
   state = {
-    books: [],
+    expenses: [],
     q: "",
     message: "Visualize Your Monthly and Quarterly Expenses!"
   };
@@ -21,40 +20,6 @@ class ExpenseReport extends Component {
     this.setState({
       [name]: value
     });
-  };
-
-  getBooks = () => {
-    API.getBooks(this.state.q)
-      .then(res =>
-        this.setState({
-          books: res.data
-        })
-      )
-      .catch(() =>
-        this.setState({
-          // books: [],
-          message: "Expenses Not Fully Submitted.  Please Resubmit"
-        })
-      );
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.getBooks();
-  };
-
-  handleBookSave = id => {
-    const book = this.state.books.find(book => book.id === id);
-
-    API.saveBook({
-      googleId: book.id,
-      title: book.volumeInfo.title,
-      subtitle: book.volumeInfo.subtitle,
-      link: book.volumeInfo.infoLink,
-      authors: book.volumeInfo.authors,
-      description: book.volumeInfo.description,
-      image: book.volumeInfo.imageLinks.thumbnail
-    }).then(() => this.getBooks());
   };
 
   render() {
@@ -81,22 +46,52 @@ class ExpenseReport extends Component {
         </Row>
         <Row>
           <Col size="md-12">
-            <Card title="Sample Insights">
-            <Visual></Visual>
-              {this.state.books.length ? (
+            <Card title="Current Insights">
+
+            <Row>
+              <Col size="md-12">
+
+          <div align="center">
+
+                <Chart nameClass="currentInsight"
+                  width={'500px'}
+                  height={'300px'}
+                  chartType="PieChart"
+                  data={[
+                    ['Expense', 'Amount'],
+                    ['Advertising', 50],
+                    ['Insurance', 350],
+                    ['Payroll', 10500],
+                    ['Rent', 1500],
+                    ['Utilities', 900],
+                  ]}
+                  options={{
+                    title: 'May Expense Report', 
+                    is3D: true,
+                  }}
+                  rootProps={{ 'data-testid': '2' }}
+                />
+
+                </div>
+
+                </Col>
+              </Row>
+
+
+              {this.state.expenses.length ? (
                 <List>
                   
-                  {this.state.books.map(book => (
+                  {this.state.expenses.map(expense => (
                     <Book
-                      key={book.id}
-                      rent={book.volumeInfo.rent}
-                      taxes={book.volumeInfo.taxes}
-                      payroll={book.volumeInfo.payroll}
-                      advertising={book.volumeInfo.advertising.join(", ")}
-                      utilities={book.volumeInfo.utilities}
+                      key={expense.id}
+                      rent={expense.volumeInfo.rent}
+                      taxes={expense.volumeInfo.taxes}
+                      payroll={expense.volumeInfo.payroll}
+                      advertising={expense.volumeInfo.advertising.join(", ")}
+                      utilities={expense.volumeInfo.utilities}
                       Button={() => (
                         <button
-                          onClick={() => this.handleBookSave(book.id)}
+                          onClick={() => this.handleExpenseSave(expense.id)}
                           className="btn btn-primary ml-2"
                         >
                           Save
@@ -108,6 +103,8 @@ class ExpenseReport extends Component {
               ) : (
                   <h2 className="text-center">{this.state.message}</h2>
                 )}
+
+
             </Card>
           </Col>
         </Row>

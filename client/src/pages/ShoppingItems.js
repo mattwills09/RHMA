@@ -7,10 +7,6 @@ import jsPDF from 'jspdf';
 import Footer from "../components/Footer";
 import { Col, Row, Container } from "../components/Grid";
 import $ from "jquery";
-// import { List } from "../components/List";
-// import Expense from "../components/Expense";
-// import Visual from "../components/Visual";
-// import { url } from "inspector";
 
 
 class ShoppingList extends Component {
@@ -26,7 +22,7 @@ class ShoppingList extends Component {
     this.deleteItem = this.deleteItem.bind(this);
   }
 
-  // Default export is a4 paper, portrait, using milimeters for units
+// Default export is a4 paper, portrait, using milimeters for units
   jsPDF() {
     var doc = new jsPDF();
 

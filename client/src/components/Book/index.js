@@ -1,14 +1,15 @@
 import React from "react";
 import { ListItem } from "../List";
-import { Row, Col } from "../Grid";
+// import { Row, Col } from "../Grid";
 import "./style.css";
 
-function Book({ month, year, rentMortgage, insurance, payroll, advertising, utilities, Button }) {
+function Expense({ month, year, rentMortgage, insurance, payroll, advertising, utilities, Button }) {
   return (
     <ListItem>
-      <Book>
+      <Expense>
         <img src="https://barnraisersllc.com/wp-content/uploads/2014/08/varwwwclientsclient1web2tmpphpJnHzht.jpg"></img>
-      </Book>
+      </Expense>
+
       {/* <Row className="flex-wrap-reverse">
         <Col size="md-8">
           <h3 className="font-italic">{title}</h3>
@@ -40,4 +41,4 @@ function Book({ month, year, rentMortgage, insurance, payroll, advertising, util
   );
 }
 
-export default Book;
+export default Expense;
