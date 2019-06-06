@@ -7,7 +7,7 @@ function Expense({ month, year, rentMortgage, insurance, payroll, advertising, u
   return (
     <ListItem>
       <Expense>
-        <img src="https://barnraisersllc.com/wp-content/uploads/2014/08/varwwwclientsclient1web2tmpphpJnHzht.jpg"></img>
+        {/* <img src="https://barnraisersllc.com/wp-content/uploads/2014/08/varwwwclientsclient1web2tmpphpJnHzht.jpg"></img> */}
       </Expense>
 
       {/* <Row className="flex-wrap-reverse">

@@ -60,15 +60,15 @@ getUser() {
           <Nav />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/BusinessAnalysis" component={BusinessAnalysis} />
-            <Route exact path="/ShoppingItems" component={ShoppingItems} />
-            <Route component={ExpenseReport} />
+            <Route exact path="/businessanalysis" component={BusinessAnalysis} />
+            <Route exact path="/shoppingitems" component={ShoppingItems} />
+            <Route exact path="/expensereport" component={ExpenseReport} />
 
-            <Route exact path="/login" render = {() =>
-                <LogIn updateUser={this.updateUser}  />} />
-            <Route exact path="/signup" render = {() =>
-                SignUp} />
+            <Route exact path="/login" component= {LogIn} />
+
+            <Route exact path="/signup" component= {SignUp} />
             <Route exact path="/dashboard" component={Dashboard} />
+
             {/* <Route exact path="/" component={LogIn} /> */}
 
           </Switch>

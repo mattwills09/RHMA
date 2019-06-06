@@ -16,6 +16,7 @@ router.route("/", (req, res) => {
             res.json({
                 error: "User already exists with username!"
             })
+            console.log("222User.js post error: ", err)
         } else { const newUser = new User({
             username: username,
             password: password
@@ -25,11 +26,12 @@ router.route("/", (req, res) => {
                 return res.json(err)
                 res.json(savedUser)
         })
+        console.log("3333User.js post error: ", err)
         }
     })
 })
 
-router.route("/login")
+router.route("/")
     .post(function (req, res, next) {
         console.log("routes/user.js, login, req.body: ");
         console.log(req.body)
@@ -50,21 +52,13 @@ router.route("/login")
         }
         res.status(401).send(info);
     }),
-
-(req, res) => {
-    console.log("logged in", req.user);
-    var userInfo = {
-        username: req.user.username
-    };
-    res.send(userInfo);
-});
-    // (req, res) => {
-    //     console.log("logged in", req.user);
-    //     var userInfo = {
-    //         username: req.user.username
-    //     };
-    //     res.send(userInfo);
-    // })
+        (req, res) => {
+            console.log("logged in", req.user);
+            var userInfo = {
+                username: req.user.username
+            };
+            res.send(userInfo);
+        });
 
 router.route("/")
     .get(function(req, res, next) {

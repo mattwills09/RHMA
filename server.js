@@ -17,7 +17,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-// app.use(passport.initialize());
+app.use(passport.initialize());
 
 
 // Sessions ============================
@@ -59,7 +59,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI,
+  process.env.MONGODB_URI || "mongodb://localhost/HAMR",
   {
     useCreateIndex: true,
     useNewUrlParser: true

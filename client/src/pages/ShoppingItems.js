@@ -98,20 +98,17 @@ class ShoppingList extends Component {
           <ShoppingItems pdf={this.jsPDF} entries={this.state.items} delete={this.deleteItem} />
         
             </div>
+            <br></br>
+
+            <Button variant="outline-primary" onClick={this.jsPDF}>Save/Print PDF</Button>
 
             </Card>
+
           </Col>
         </Row>
 
         <br></br>
-
-        <button variant="info" type="button" onClick={this.jsPDF}>
-          Save/Print PDF
-        </button>
-
-        <Button variant="info">Info</Button>
-
-        
+       
         <Footer />
       </Container>
 

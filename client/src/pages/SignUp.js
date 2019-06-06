@@ -42,7 +42,7 @@ class SignUp extends Component {
                     this.setState({
                         username: "",
                         password: "",
-                        redirectTo: "/dashboard"
+                        redirectTo: "/expensereport"
                     })
                     // this.props.history.push("/dashboard");
                 } else {
