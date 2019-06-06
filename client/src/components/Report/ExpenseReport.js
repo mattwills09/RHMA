@@ -38,11 +38,18 @@ class Report extends Component {
             <div className="chart-container">
 
                 <Chart
-
+                    nameClass="currentInsight"
                     chartType="PieChart"
                     data={this.state.expenseData}
-                    width="100%"
-                    height="400px"
+                    width={'500px'}
+                    height={'300px'}
+
+                    options={{
+                        title: 'May Expense Report', 
+                        is3D: true,
+                      }}
+
+                    rootProps={{ 'data-testid': '2' }}
 
                 />
             </div>

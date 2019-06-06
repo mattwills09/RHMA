@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Chart from 'react-google-charts';
 import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
 import Form from "../components/Form";
@@ -7,6 +6,7 @@ import Book from "../components/Book";
 import Footer from "../components/Footer";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
+import Report from "../components/Report/ExpenseReport"
 
 class ExpenseReport extends Component {
   state = {
@@ -52,25 +52,7 @@ class ExpenseReport extends Component {
               <Col size="md-12">
 
           <div align="center">
-
-                <Chart nameClass="currentInsight"
-                  width={'500px'}
-                  height={'300px'}
-                  chartType="PieChart"
-                  data={[
-                    ['Expense', 'Amount'],
-                    ['Advertising', 50],
-                    ['Insurance', 350],
-                    ['Payroll', 10500],
-                    ['Rent', 1500],
-                    ['Utilities', 900],
-                  ]}
-                  options={{
-                    title: 'May Expense Report', 
-                    is3D: true,
-                  }}
-                  rootProps={{ 'data-testid': '2' }}
-                />
+          <Report></Report>
 
                 </div>
 
