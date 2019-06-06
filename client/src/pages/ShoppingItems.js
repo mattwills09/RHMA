@@ -7,6 +7,7 @@ import jsPDF from 'jspdf';
 import Footer from "../components/Footer";
 import { Col, Row, Container } from "../components/Grid";
 import $ from "jquery";
+import Button from 'react-bootstrap/Button';
 
 
 class ShoppingList extends Component {
@@ -104,9 +105,11 @@ class ShoppingList extends Component {
 
         <br></br>
 
-        <button type="button" onClick={this.jsPDF}>
+        <button variant="info" type="button" onClick={this.jsPDF}>
           Save/Print PDF
         </button>
+
+        <Button variant="info">Info</Button>
 
         
         <Footer />
