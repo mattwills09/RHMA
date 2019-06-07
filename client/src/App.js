@@ -9,7 +9,6 @@ import ShoppingItems from "./pages/ShoppingItems";
 //=====================================
 import SignUp from "./pages/SignUp"
 import LogIn from "./pages/LogIn";
-import Dashboard from "./pages/Dashboard";
 
 import "./App.css";
 

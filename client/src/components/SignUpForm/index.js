@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 
 
 function SignUpForm({ username, password, handleInputChange, handleFormSubmit, handleLogInButton })    {
@@ -36,7 +37,7 @@ function SignUpForm({ username, password, handleInputChange, handleFormSubmit, h
 
         </div>
         
-        <div>
+        <div className="homeButtons">
 
         <button
                 onClick={handleFormSubmit}
