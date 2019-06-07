@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import LogInForm from "../components/LogInForm";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import PasswordShowHide from "../components/PasswordShowHide";
 
 
 class LogIn extends Component {
@@ -75,8 +74,6 @@ class LogIn extends Component {
                     username={this.state.username}
                     password={this.state.password}
                 />
-
-                <PasswordShowHide/>
 
             </div>
         );

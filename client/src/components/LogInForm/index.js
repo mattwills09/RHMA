@@ -37,11 +37,11 @@ function LogInForm({ username, password, handleLogInInputChange, handleLogInSubm
 
         </div>
         
-        <div className="pull-right">
+        <div className="homeButtons">
             <button
                 onClick={handleLogInSubmit}
                 type="submit"
-                className="btn btn-lg btn-danger float-right"
+                className="btn btn-lg btn-danger"
             >
                 Log In
             </button>
