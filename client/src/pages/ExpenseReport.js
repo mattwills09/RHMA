@@ -3,10 +3,9 @@ import Chart from 'react-google-charts';
 import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
 import Form from "../components/Form";
-import Book from "../components/Book";
 import Footer from "../components/Footer";
 import { Col, Row, Container } from "../components/Grid";
-import { List } from "../components/List";
+
 
 class ExpenseReport extends Component {
   state = {
@@ -40,11 +39,13 @@ class ExpenseReport extends Component {
 
           <Col size="md-12">
             <Card title="Expense Report" icon="far fa-book">
+
               <Form
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
                 q={this.state.q}
               />
+              
             </Card>
           </Col>
         </Row>
@@ -81,34 +82,6 @@ class ExpenseReport extends Component {
 
                 </Col>
               </Row>
-
-
-              {this.state.expenses.length ? (
-                <List>
-                  
-                  {this.state.expenses.map(expense => (
-                    <Book
-                      key={expense.id}
-                      rent={expense.volumeInfo.rent}
-                      taxes={expense.volumeInfo.taxes}
-                      payroll={expense.volumeInfo.payroll}
-                      advertising={expense.volumeInfo.advertising.join(", ")}
-                      utilities={expense.volumeInfo.utilities}
-                      Button={() => (
-                        <button
-                          onClick={() => this.handleExpenseSave(expense.id)}
-                          className="btn btn-primary ml-2"
-                        >
-                          Save
-                        </button>
-                      )}
-                    />
-                  ))}
-                </List>
-              ) : (
-                  <h2 className="text-center">Current Monthly Insight</h2>
-                )}
-
 
             </Card>
           </Col>
