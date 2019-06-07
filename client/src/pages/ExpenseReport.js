@@ -7,20 +7,45 @@ import Footer from "../components/Footer";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
 import Report from "../components/Report/ExpenseReport"
+import axios from "axios";
 
 class ExpenseReport extends Component {
-  state = {
-    expenses: [],
-    q: "",
-    message: "Visualize Your Monthly and Quarterly Expenses!"
-  };
 
+  state = {
+    p:"",
+    q:"",
+    r:"",
+    s:"",
+    t:"",
+    u:"",
+    v:""
+  };
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    axios.post("/api/expense", {
+      month: this.state.p,
+      year:2019,
+      rentMortgage: this.state.q,
+      insurance: this.state.v,
+      tax: this.state.r,
+      payroll: this.state.s,
+      advertising: this.state.t,
+      utilities: this.state.u
+
+    }).then(res => {
+      console.log(res);
+
+    }).catch(error=> {
+      console.log(error);
+    })
+  }
 
   render() {
     return (
@@ -65,7 +90,7 @@ class ExpenseReport extends Component {
               </Row>
 
 
-              {this.state.expenses.length ? (
+              {/* {this.state.expenses.length ? (
                 <List>
                   
                   {this.state.expenses.map(expense => (
@@ -89,7 +114,7 @@ class ExpenseReport extends Component {
                 </List>
               ) : (
                   <h2 className="text-center">Current Monthly Insight</h2>
-                )}
+                )} */}
 
 
             </Card>
@@ -102,3 +127,9 @@ class ExpenseReport extends Component {
 }
 
 export default ExpenseReport;
+
+// state = {
+//   expenses: [],
+//   q: "",
+//   message: "Visualize Your Monthly and Quarterly Expenses!"
+// };
