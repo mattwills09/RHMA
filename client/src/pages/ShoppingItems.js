@@ -7,6 +7,7 @@ import jsPDF from 'jspdf';
 import Footer from "../components/Footer";
 import { Col, Row, Container } from "../components/Grid";
 import $ from "jquery";
+import Button from 'react-bootstrap/Button';
 
 
 class ShoppingList extends Component {
@@ -79,7 +80,7 @@ class ShoppingList extends Component {
         </Row>
         <Row>
           <Col size="md-12">
-            <Card title="Inventory List" icon="download">
+            <Card title="Inventory List" icon="far fa-edit">
 
             <div className="ListMain">
               <div className="header">
@@ -97,18 +98,17 @@ class ShoppingList extends Component {
           <ShoppingItems pdf={this.jsPDF} entries={this.state.items} delete={this.deleteItem} />
         
             </div>
+            <br></br>
+
+            <Button variant="outline-primary" onClick={this.jsPDF}>Save/Print PDF</Button>
 
             </Card>
+
           </Col>
         </Row>
 
         <br></br>
-
-        <button type="button" onClick={this.jsPDF}>
-          Save/Print PDF
-        </button>
-
-        
+       
         <Footer />
       </Container>
 

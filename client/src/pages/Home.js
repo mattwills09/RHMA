@@ -1,7 +1,6 @@
 import React from "react";
 
-
-function SignUpForm({ username, password, handleInputChange, handleFormSubmit }) {
+function Home({ username, password, handleInputChange, handleFormSubmit }) {
   return (
 
     <form>
@@ -49,4 +48,4 @@ function SignUpForm({ username, password, handleInputChange, handleFormSubmit })
 }
 
 
-export default SignUpForm;
+export default Home;

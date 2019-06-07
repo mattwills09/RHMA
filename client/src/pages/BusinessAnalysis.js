@@ -38,6 +38,7 @@ class BusinessAnalysis extends Component {
 
   render() {
     return (
+
       <Container>
         <Row>
           <Col size="md-12">
@@ -53,7 +54,7 @@ class BusinessAnalysis extends Component {
         <Row>
           <Col size="md-12">
             
-            <Card title="Visuals" icon="download">
+            <Card title="Visuals" icon="fas fa-money-check-alt">
 
               <Quarter>
 

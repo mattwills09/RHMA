@@ -68,28 +68,27 @@ function Form({ p,q, r, s, t, handleInputChange, handleFormSubmit }) {
             required
         />
       </div>
-      <div className="pull-right">
-        <button
+      <div>
+
+      <button
           onClick={handleFormSubmit}
           type="submit"
-          className="btn btn-lg btn-primary float-right"
-        >
-          Review Your Quarterly Expenses
-        </button>
-        <button
-          onClick={handleFormSubmit}
-          type="submit"
-          className="btn btn-lg btn-success float-right"
+          className="btn btn-lg btn-success"
           href="/BusinessAnalysis"
         >
           Submit Expenses
-          
         </button>
 
+        &nbsp;&nbsp;
 
-
-
-
+        <button
+          onClick={handleFormSubmit}
+          type="submit"
+          className="btn btn-lg btn-primary"
+        >
+          Review Your Quarterly Expenses
+        </button>
+        
       </div>
     </form>
 
