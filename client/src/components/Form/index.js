@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 
-function Form({ p,q, r, s, t, handleInputChange, handleFormSubmit }) {
+function Form({ p,q, r, s, t,u,v, handleInputChange, handleFormSubmit }) {
   return (
     <form>
       <div className="form-group">
@@ -11,7 +11,7 @@ function Form({ p,q, r, s, t, handleInputChange, handleFormSubmit }) {
         </label>
         <input
           className="form-control"
-          id="rent"
+          id="month"
           type="text"
           value={p}
           placeholder="Month"
@@ -63,9 +63,19 @@ function Form({ p,q, r, s, t, handleInputChange, handleFormSubmit }) {
             className="form-control"
             id="utilities"
             type="text"
-            value={t}
+            value={u}
             placeholder="Utilities"
             name="u"
+            onChange={handleInputChange}
+            required
+        />
+        <input
+            className="form-control"
+            id="insurance"
+            type="text"
+            value={v}
+            placeholder="insurance"
+            name="v"
             onChange={handleInputChange}
             required
         />
