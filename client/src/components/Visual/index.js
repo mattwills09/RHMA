@@ -7,7 +7,7 @@ function Visual({ icon, title, children, quarter }) {
                 <h3>
                     <strong>
                         <i className={`fa fa-${icon}`} aria-hidden="true" /> {title}
-                        <img src={require('./Dataviz.png')} />
+                        {/* <img src={require('./Dataviz.png')} /> */}
                     </strong>
                 </h3>
             </div>

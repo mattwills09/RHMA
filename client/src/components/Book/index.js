@@ -1,13 +1,13 @@
 import React from "react";
 import { ListItem } from "../List";
-import { Row, Col } from "../Grid";
+// import { Row, Col } from "../Grid";
 import "./style.css";
 
 function Book({ month, year, rentMortgage, insurance, payroll, advertising, utilities, Button }) {
   return (
     <ListItem>
       <Book>
-        <img src="https://barnraisersllc.com/wp-content/uploads/2014/08/varwwwclientsclient1web2tmpphpJnHzht.jpg"></img>
+        {/* <img src="https://barnraisersllc.com/wp-content/uploads/2014/08/varwwwclientsclient1web2tmpphpJnHzht.jpg"></img> */}
       </Book>
       {/* <Row className="flex-wrap-reverse">
         <Col size="md-8">
