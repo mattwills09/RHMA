@@ -1,4 +1,6 @@
 import React from "react";
+import "./style.css";
+
 
 function Form({ p,q, r, s, t, handleInputChange, handleFormSubmit }) {
   return (
@@ -68,7 +70,10 @@ function Form({ p,q, r, s, t, handleInputChange, handleFormSubmit }) {
             required
         />
       </div>
-      <div>
+      
+      <div className="expenseButtons">
+
+        <br></br>
 
       <button
           onClick={handleFormSubmit}
