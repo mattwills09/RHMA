@@ -4,11 +4,13 @@ import React from "react";
 function LogInForm({ username, password, handleLogInInputChange, handleLogInSubmit })
     {
     return (
+        
         <form>
         <div className="form-group">
 
             <label htmlFor="username">
                 <strong>Log In Page</strong>
+                &nbsp;&nbsp;<i className="fas fa-unlock-alt"></i>
             </label>
 
             <input

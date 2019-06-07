@@ -59,17 +59,13 @@ getUser() {
         <div>
           <Nav />
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={SignUp} />
             <Route exact path="/businessanalysis" component={BusinessAnalysis} />
             <Route exact path="/shoppingitems" component={ShoppingItems} />
             <Route exact path="/expensereport" component={ExpenseReport} />
 
             <Route exact path="/login" component= {LogIn} />
-
             <Route exact path="/signup" component= {SignUp} />
-            <Route exact path="/dashboard" component={Dashboard} />
-
-            {/* <Route exact path="/" component={LogIn} /> */}
 
           </Switch>
         </div>

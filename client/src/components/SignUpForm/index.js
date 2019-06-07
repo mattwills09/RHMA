@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function SignUpForm({ username, password, handleInputChange, handleFormSubmit })    {
+function SignUpForm({ username, password, handleInputChange, handleFormSubmit, handleLogInButton })    {
     return (
 
     <form>
@@ -9,6 +9,7 @@ function SignUpForm({ username, password, handleInputChange, handleFormSubmit })
 
             <label htmlFor="username">
                 <strong>Sign-Up Page</strong>
+                &nbsp;&nbsp;<i className="fas fa-user-plus"></i>
             </label>
 
             <input
@@ -35,14 +36,26 @@ function SignUpForm({ username, password, handleInputChange, handleFormSubmit })
 
         </div>
         
-        <div className="pull-right">
-            <button
+        <div>
+
+        <button
                 onClick={handleFormSubmit}
                 type="submit"
-                className="btn btn-lg btn-danger float-right"
+                className="btn btn-lg btn-danger"
             >
                 Sign Up
-            </button>
+        </button>
+
+        &nbsp;&nbsp;&nbsp;
+
+        <button
+                onClick={handleLogInButton}
+                type="submit"
+                className="btn btn-lg btn-outline-success"
+            >
+                Log In
+        </button>        
+
         </div>
     </form>
   );

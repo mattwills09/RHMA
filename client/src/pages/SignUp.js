@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Form from "../components/SignUpForm";
+import SignUpForm from "../components/SignUpForm";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import PasswordShowHide from "../components/PasswordShowHide/passwordShowHide";
+// import PasswordShowHide from "../components/PasswordShowHide/passwordShowHide";
 
 
 class SignUp extends Component {
@@ -42,7 +42,7 @@ class SignUp extends Component {
                     this.setState({
                         username: "",
                         password: "",
-                        redirectTo: "/expensereport"
+                        redirectTo: "/ExpenseReport"
                     })
                     // this.props.history.push("/dashboard");
                 } else {
@@ -54,6 +54,15 @@ class SignUp extends Component {
                 console.log(error);
             })
     }
+
+    handleLogInButton = event => {
+        event.preventDefault();
+        console.log("Let's Go To LogIn!");
+        
+        this.setState({
+            redirectTo: "/login"
+        });
+      }
 
     render() {
         if (this.state.redirectTo) {
@@ -70,14 +79,15 @@ class SignUp extends Component {
 
                 <h2 className="text-center">Sign Up to Join Us.  We mean well.</h2>
 
-                <Form
+                <SignUpForm
                     handleInputChange={this.handleInputChange}
                     handleFormSubmit={this.handleFormSubmit}
                     username={this.state.username}
                     password={this.state.password}
+                    handleLogInButton={this.handleLogInButton}
                 />
 
-                <PasswordShowHide/>
+                {/* <PasswordShowHide/> */}
 
             </div>
         );

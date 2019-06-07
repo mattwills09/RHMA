@@ -1,6 +1,6 @@
-const db = require("../models/user");
+const db = require("../models");
 
-const User = require("../models/user");
+// const User = require("../models/user");
 const passport = require("../passport");
 const express = require("express");
 const router = express.Router();
@@ -9,41 +9,40 @@ const router = express.Router();
 module.exports = {
 
 
-    // USER SIGN-UP ====================
+// SIGN-UP ====================
     create: function(req, res) {
-        db.User.create(req.body)
-            .then(dbUser => res.json(dbUser))
-            .catch(err => res.status(422).json(err));
+        
+        console.log("User Sign Up");
 
-        // router.post("/", (req, res) => {
-            console.log("User Sign Up");
-
-        const { username, password } = req.body
         //validation: =====================
-        User.findOne({ username: username }, (err, user) => {
+        const { username, password } = req.body
+        db.User.findOne({ username: username }, (err, user) => {
             if (err) {
                 console.log("User.js post error: ", err)
+
             } else if (user) {
                 res.json({
                     error: "User already exists with username!"
                 })
                 console.log("222User.js post error: ", err)
-            } else { const newUser = new User({
-                username: username,
-                password: password
-            })
-            newUser.save((err, savedUser) => {
-                if (err)
-                    return res.json(err)
-                    res.json(savedUser)
-            })
+
+            } else {
+                db.User.create(req.body)
+                .then(dbUser => res.json(dbUser))
+                .catch(err => res.status(422).json(err));
+            }
+            // newUser.save((err, savedUser) => {
+            //     if (err)
+            //         return res.json(err)
+            //         res.json(savedUser)
+            // })
             console.log("3333User.js post error: ", err)
             }
-        })
+        )
 
     },
 
-    // USER LOG-IN ====================
+// LOG-IN ====================
     post: function(req, res) {
         db.User.post(req.body)
             .then(dbUser => res.json(dbUser))
@@ -80,7 +79,7 @@ module.exports = {
 
     },
 
-    // USER GET ====================
+// GET ====================
     get: function(req, res) {
         db.User.findOne(req.body)
             .then(dbUser => res.json(dbUser))
@@ -101,11 +100,13 @@ module.exports = {
 
     },
     
-    // USER LOG OUT ====================
+// LOG OUT ====================
     logout: function(req, res) {
         db.User.findOne(req.body)
             .then(dbUser => res.json(dbUser))
             .catch(err => res.status(422).json(err));
+
+            localStorage.clear();
 
         // router.post("/logout", (req, res) => {
             if (req.user) {

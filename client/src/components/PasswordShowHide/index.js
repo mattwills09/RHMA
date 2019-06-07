@@ -41,7 +41,8 @@ class PasswordShowHide extends Component {
           placeholder="Enter Password.."
           required={true}
         />
-        <button onClick={this.toggleShow}>Show / Hide</button>
+        <br></br>
+        <button class="btn btn-outline-danger btn-sm" onClick={this.toggleShow}>Show / Hide</button>
       </div>
     );
   }

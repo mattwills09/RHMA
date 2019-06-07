@@ -80,7 +80,7 @@ class ShoppingList extends Component {
         </Row>
         <Row>
           <Col size="md-12">
-            <Card title="Inventory List" icon="download">
+            <Card title="Inventory List" icon="far fa-edit">
 
             <div className="ListMain">
               <div className="header">

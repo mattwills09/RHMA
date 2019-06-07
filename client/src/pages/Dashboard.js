@@ -1,5 +1,5 @@
 import React from "react";
-import LogOutButton from "../components/LogOutButton";
+import LogOut from "../components/LogOut";
 // import axios from "axios";
 // import { Redirect } from "react-router-dom";
 
@@ -16,7 +16,7 @@ function Dashboard() {
 
                 <h2 className="text-center">We're here to help.. we promise.</h2>
 
-                <LogOutButton />
+                <LogOut />
 
 
             </div>

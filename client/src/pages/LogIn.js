@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import LogInForm from "../components/LogInForm";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import PasswordShowHide from "../components/PasswordShowHide/passwordShowHide";
+import PasswordShowHide from "../components/PasswordShowHide";
 
 
 class LogIn extends Component {
@@ -42,7 +42,7 @@ class LogIn extends Component {
                     this.setState({
                         username: "",
                         password: "",
-                        redirectTo: "/dashboard"
+                        redirectTo: "/expensereport"
                     })
                 } else {
                     console.log("Log In Error");
@@ -63,9 +63,8 @@ class LogIn extends Component {
         return (
 
             <div>
-
                 <h1 className="text-center">
-                    <strong>HARM Enterprises Financial Help</strong>
+                <strong>HARM Enterprises Financial Help</strong>
                 </h1>
 
                 <h3 className="text-center">We're here to help.. we promise.</h3>

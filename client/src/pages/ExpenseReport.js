@@ -24,16 +24,20 @@ class ExpenseReport extends Component {
 
   render() {
     return (
+
       <Container>
         <Row>
           <Col size="md-12">
+
             <Jumbotron>
               <h1 className="text-center">
                 <strong>Learn Your True Cost of Doing Business</strong>
               </h1>
               <h2 className="text-center">Input Your Expenses for Data Insights</h2>
             </Jumbotron>
+            
           </Col>
+
           <Col size="md-12">
             <Card title="Expense Report" icon="far fa-book">
               <Form
@@ -44,9 +48,10 @@ class ExpenseReport extends Component {
             </Card>
           </Col>
         </Row>
+
         <Row>
           <Col size="md-12">
-            <Card title="Current Insights">
+            <Card title="Current Insights" icon="fas fa-chart-pie">
 
             <Row>
               <Col size="md-12">
@@ -101,7 +106,7 @@ class ExpenseReport extends Component {
                   ))}
                 </List>
               ) : (
-                  <h2 className="text-center">{this.state.message}</h2>
+                  <h2 className="text-center">Current Monthly Insight</h2>
                 )}
 
 

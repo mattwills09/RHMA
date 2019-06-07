@@ -32,15 +32,17 @@ app.use((req, res, next) => {
   return next();
 });
 
-app.post("/api/user", userController.create);
-  console.log("User Sign Up");
-  // req.session.username = req.body.username;
-  // res.end()
+// app.post("/api/user", userController.create);
+//   console.log("User Sign Up");
+//   req.session.username = req.body.username;
+//   res.end()
 
+//EXPENSE PATHS ================
 app.post("/api/expense", expenseController.create);
 app.get("/api/expense", expenseController.read);
 app.get("/api/expense/:mon", expenseController.findByMonth);
 
+//USER PATHS ================
 app.post("/api/user", userController.create);
 app.post("/api/user/login", userController.login);
 app.put("/api/user", userController.update);
@@ -67,12 +69,13 @@ mongoose.connect(
 );
 
 
-// Send every request to the React app & ==
-// Define API routes before this runs =====
+// Send every request to the React app & ===
+// Define API routes before this runs ======
 
 // app.get("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 // });
+
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
