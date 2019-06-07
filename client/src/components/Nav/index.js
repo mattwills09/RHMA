@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import LogOut from "../LogOut";
+// import { Redirect } from "react-router-dom";
 import "./style.css";
 
 
@@ -31,12 +33,19 @@ class Nav extends Component {
     window.removeEventListener("resize", this.updateWidth);
   }
 
+  redirectToLogin = () => {
+    window.location.href = "/login";
+    console.log("button clicked");
+  }
+
+
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light mb-2">
         <Link className="navbar-brand" to="/">
-          RHMA Insights
+          <h3>RHMA Insights</h3>
         </Link>
+
         <button
           onClick={this.toggleNav}
           className="navbar-toggler"
@@ -48,6 +57,7 @@ class Nav extends Component {
         >
           <span className="navbar-toggler-icon" />
         </button>
+
         <div className={`${this.state.open ? "" : "collapse "}navbar-collapse`} id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
@@ -77,10 +87,16 @@ class Nav extends Component {
               >
                 Purchases
               </Link>
-              
+             
             </li>
           </ul>
+
         </div>
+
+        <LogOut 
+          redirect={this.redirectToLogin}
+        />
+
       </nav>
     );
   }

@@ -4,14 +4,13 @@ import Card from "../components/Card";
 import Form from "../components/Form";
 import Book from "../components/Book";
 import Footer from "../components/Footer";
-import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
-import Visual from "../components/Visual";
+import Report from "../components/Report/ExpenseReport"
 
 class ExpenseReport extends Component {
   state = {
-    books: [],
+    expenses: [],
     q: "",
     message: "Visualize Your Monthly and Quarterly Expenses!"
   };
@@ -23,52 +22,22 @@ class ExpenseReport extends Component {
     });
   };
 
-  getBooks = () => {
-    API.getBooks(this.state.q)
-      .then(res =>
-        this.setState({
-          books: res.data
-        })
-      )
-      .catch(() =>
-        this.setState({
-          // books: [],
-          message: "Expenses Not Fully Submitted.  Please Resubmit"
-        })
-      );
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.getBooks();
-  };
-
-  handleBookSave = id => {
-    const book = this.state.books.find(book => book.id === id);
-
-    API.saveBook({
-      googleId: book.id,
-      title: book.volumeInfo.title,
-      subtitle: book.volumeInfo.subtitle,
-      link: book.volumeInfo.infoLink,
-      authors: book.volumeInfo.authors,
-      description: book.volumeInfo.description,
-      image: book.volumeInfo.imageLinks.thumbnail
-    }).then(() => this.getBooks());
-  };
-
   render() {
     return (
+
       <Container>
         <Row>
           <Col size="md-12">
+
             <Jumbotron>
               <h1 className="text-center">
                 <strong>Learn Your True Cost of Doing Business</strong>
               </h1>
               <h2 className="text-center">Input Your Expenses for Data Insights</h2>
             </Jumbotron>
+            
           </Col>
+
           <Col size="md-12">
             <Card title="Expense Report" icon="far fa-book">
               <Form
@@ -79,24 +48,37 @@ class ExpenseReport extends Component {
             </Card>
           </Col>
         </Row>
+
         <Row>
           <Col size="md-12">
-            <Card title="Sample Insights">
-            <Visual></Visual>
-              {this.state.books.length ? (
+            <Card title="Current Insights" icon="fas fa-chart-pie">
+
+            <Row>
+              <Col size="md-12">
+
+          <div align="center">
+          <Report></Report>
+
+                </div>
+
+                </Col>
+              </Row>
+
+
+              {this.state.expenses.length ? (
                 <List>
                   
-                  {this.state.books.map(book => (
+                  {this.state.expenses.map(expense => (
                     <Book
-                      key={book.id}
-                      rent={book.volumeInfo.rent}
-                      taxes={book.volumeInfo.taxes}
-                      payroll={book.volumeInfo.payroll}
-                      advertising={book.volumeInfo.advertising.join(", ")}
-                      utilities={book.volumeInfo.utilities}
+                      key={expense.id}
+                      rent={expense.volumeInfo.rent}
+                      taxes={expense.volumeInfo.taxes}
+                      payroll={expense.volumeInfo.payroll}
+                      advertising={expense.volumeInfo.advertising.join(", ")}
+                      utilities={expense.volumeInfo.utilities}
                       Button={() => (
                         <button
-                          onClick={() => this.handleBookSave(book.id)}
+                          onClick={() => this.handleExpenseSave(expense.id)}
                           className="btn btn-primary ml-2"
                         >
                           Save
@@ -106,8 +88,10 @@ class ExpenseReport extends Component {
                   ))}
                 </List>
               ) : (
-                  <h2 className="text-center">{this.state.message}</h2>
+                  <h2 className="text-center">Current Monthly Insight</h2>
                 )}
+
+
             </Card>
           </Col>
         </Row>

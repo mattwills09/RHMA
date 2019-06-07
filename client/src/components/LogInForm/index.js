@@ -1,13 +1,16 @@
 import React from "react";
 
-function Home({ username, password, handleInputChange, handleFormSubmit }) {
-  return (
 
-    <form>
+function LogInForm({ username, password, handleLogInInputChange, handleLogInSubmit })
+    {
+    return (
+        
+        <form>
         <div className="form-group">
 
             <label htmlFor="username">
-                <strong>Sign-Up Page</strong>
+                <strong>Log In Page</strong>
+                &nbsp;&nbsp;<i className="fas fa-unlock-alt"></i>
             </label>
 
             <input
@@ -17,7 +20,7 @@ function Home({ username, password, handleInputChange, handleFormSubmit }) {
                 name="username"
                 value={username}
                 placeholder="Input Username.."
-                onChange={handleInputChange}
+                onChange={handleLogInInputChange}
                 required={true}
             />
 
@@ -28,7 +31,7 @@ function Home({ username, password, handleInputChange, handleFormSubmit }) {
                 name="password"
                 value={password}
                 placeholder="Input Password.."
-                onChange={handleInputChange}
+                onChange={handleLogInInputChange}
                 required={true}
             />
 
@@ -36,11 +39,11 @@ function Home({ username, password, handleInputChange, handleFormSubmit }) {
         
         <div className="pull-right">
             <button
-                onClick={handleFormSubmit}
+                onClick={handleLogInSubmit}
                 type="submit"
                 className="btn btn-lg btn-danger float-right"
             >
-                Sign Up
+                Log In
             </button>
         </div>
     </form>
@@ -48,4 +51,4 @@ function Home({ username, password, handleInputChange, handleFormSubmit }) {
 }
 
 
-export default Home;
+export default LogInForm;

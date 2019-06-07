@@ -2,16 +2,12 @@ import React, { Component } from "react";
 import Chart from 'react-google-charts';
 import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
-// import Book from "../components/Book";
 import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
 import Expense from "../components/Expense";
-import Book from "../components/Book";
-import Visual from "../components/Visual";
 import Quarter from "../components/Quarter";
-
 
 
 const mongoose = require("mongoose");
@@ -19,29 +15,30 @@ const Schema = mongoose.Schema;
 
 class BusinessAnalysis extends Component {
   state = {
-    books: []
+    expenses: []
   };
 
   componentDidMount() {
-    this.getSavedBooks();
+    this.getSavedExpenses();
   }
 
-  getSavedBooks = () => {
-    API.getSavedBooks()
+  getSavedExpenses = () => {
+    API.getSavedExpenses()
       .then(res =>
         this.setState({
-          books: res.data
+          expenses: res.data
         })
       )
       .catch(err => console.log(err));
   };
 
-  handleBookDelete = id => {
-    API.deleteBook(id).then(res => this.getSavedBooks());
+  handleExpenseDelete = id => {
+    API.deleteExpense(id).then(res => this.getSavedExpenses());
   };
 
   render() {
     return (
+
       <Container>
         <Row>
           <Col size="md-12">
@@ -57,7 +54,7 @@ class BusinessAnalysis extends Component {
         <Row>
           <Col size="md-12">
             
-            <Card title="Visuals" icon="download">
+            <Card title="Visuals" icon="fas fa-money-check-alt">
 
               <Quarter>
 
@@ -110,23 +107,73 @@ class BusinessAnalysis extends Component {
                 </Col>
               </Row>
 
+              <Row>
+                <Col size="md-6">
+
+                  <Chart
+                    width={'500px'}
+                    height={'300px'}
+                    chartType="PieChart"
+                    data={[
+                      ['Expense', 'Amount'],
+                      ['Advertising', 100],
+                      ['Insurance', 350],
+                      ['Payroll', 10000],
+                      ['Rent', 1500],
+                      ['Utilities', 800],
+                    ]}
+                    options={{
+                      title: 'April Expense Report', 
+                      is3D: true,
+                    }}
+                    rootProps={{ 'data-testid': '2' }}
+                  />
+
+                  </Col>
+
+                  <Col size="md-6">
+
+                    <Chart
+                      width={'500px'}
+                      height={'300px'}
+                      chartType="PieChart"
+                      data={[
+                        ['Expense', 'Amount'],
+                        ['Advertising', 50],
+                        ['Insurance', 350],
+                        ['Payroll', 10500],
+                        ['Rent', 1500],
+                        ['Utilities', 900],
+                      ]}
+                      options={{
+                        title: 'May Expense Report', 
+                        is3D: true,
+                      }}
+                      rootProps={{ 'data-testid': '2' }}
+                    />
+
+                </Col>
+              </Row>
+
               </Quarter>
 
-              {this.state.books.length ? (
+
+
+              {this.state.expenses.length ? (
                 <List>
-                  {this.state.books.map(book => (
-                    <Book
-                      key={book._id}
-                      month={book.month}
-                      year={book.year}
-                      rentMortgage={book.rentMortgage}
-                      insurance={book.insurance}
-                      payroll={book.payroll}
-                      advertising={book.advertising}
-                      utilities={book.utilities}
+                  {this.state.expenses.map(expense => (
+                    <Expense
+                      key={expense._id}
+                      month={expense.month}
+                      year={expense.year}
+                      rentMortgage={expense.rentMortgage}
+                      insurance={expense.insurance}
+                      payroll={expense.payroll}
+                      advertising={expense.advertising}
+                      utilities={expense.utilities}
                       Button={() => (
                         <button
-                          onClick={() => this.handleBookDelete(book._id)}
+                          onClick={() => this.handleExpenseDelete(expense._id)}
                           className="btn btn-danger ml-2"
                         >
                           Delete
