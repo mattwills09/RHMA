@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 
-function Form({ p,q, r, s, t,u,v, handleInputChange, handleFormSubmit }) {
+function Form({ p, q, r, s, t, u, v, handleInputChange, handleFormSubmit }) {
   return (
     <form>
       <div className="form-group">

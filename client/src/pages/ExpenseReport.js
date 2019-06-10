@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
 import Form from "../components/Form";
-import Book from "../components/Book";
 import Footer from "../components/Footer";
 import { Col, Row, Container } from "../components/Grid";
-import { List } from "../components/List";
 import Report from "../components/Report/ExpenseReport"
 import axios from "axios";
 
@@ -20,6 +18,7 @@ class ExpenseReport extends Component {
     u:"",
     v:""
   };
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -29,6 +28,7 @@ class ExpenseReport extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+
     axios.post("/api/expense", {
       month: this.state.p,
       year:2019,
@@ -42,9 +42,22 @@ class ExpenseReport extends Component {
     }).then(res => {
       console.log(res);
 
+    alert("Expenses Submitted Successfully");
+    
     }).catch(error=> {
       console.log(error);
     })
+    
+    this.setState({
+      p: "",
+      q: "",
+      r: "",
+      s: "",
+      t: "",
+      u: "",
+      v: ""
+    })
+
   }
 
   render() {
