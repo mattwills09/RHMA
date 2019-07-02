@@ -1,4 +1,5 @@
-# RHMA
+# RHMA Insights - Small Business Income/Revenue/Forecasting Application
+___
 
 ## Overview
 
@@ -11,6 +12,7 @@ Business Owners are then able to look up local business for supplies that could 
 ## Heroku Link
 
 [RHMA Bills Project Link](https://warm-wave-74995.herokuapp.com/)
+___
 
 ## Technologies Used
 
