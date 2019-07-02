@@ -2,6 +2,12 @@
 
 ## Overview
 
+Quarterly Insights delivered through data visualization based upon core business components.
+
+RHMA Insights allows for a business to understand the true monthly/quarterly costs of a small business.
+
+Business Owners are then able to look up local business for supplies that could be advantageous to purchase from to combat high cost items.
+
 ## Heroku Link
 
 [RHMA Bills Project Link](https://warm-wave-74995.herokuapp.com/)
@@ -26,6 +32,8 @@
 * [DotEnv](https://www.npmjs.com/package/dotenv) - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env
 
 ## Problems Faced:
+
+Formatting for multiple pages (resolved), Sign In, Database Connection (resolved), Interactive Images
 
 ## Authors
 
