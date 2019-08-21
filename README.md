@@ -1,4 +1,4 @@
-# RHMA Insights for Small Business
+# RHMA Insights for Small Business Finances
 Income/Revenue/Forecasting Application
 ___
 
