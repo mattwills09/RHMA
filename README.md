@@ -1,5 +1,5 @@
 # Small Business Financial Planning provided by RHMA Insights
-Income/Revenue/Forecasting Application
+Income, Revenue & Forecasting Application
 ___
 
 ## Overview
@@ -40,7 +40,7 @@ Formatting for multiple pages (resolved), Sign In, Database Connection (resolved
 
 ## Authors
 
-* **Matt Williams** - *Initial work* - [M Williams](https://mattwills09.github.io/portfolio.html)
+* **Matt Williams** - *Initial work* (Portfolio) - [M Williams](https://mattwills09.github.io/portfolio.html)
 * **Harsh P.**
 * **Rick Nicolai**
 * **Amir Pourrezaei**
